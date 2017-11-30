@@ -41,7 +41,7 @@ public class Scouting extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scouting);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true); //temporary for testing committing and pushing
 
         viewsInputDataArray = new ArrayList<InputData>();
         viewsArray = new ArrayList<DataHolder>();
