@@ -56,12 +56,28 @@ public class SelectView extends AppCompatActivity {
         name = viewName.getText().toString();
     }
 
-    public void viewCreate (View view) {
+    public void viewApply (View view) {
         readData();
         Intent resultIntent = new Intent();
         resultIntent.putExtra("type", type);
         resultIntent.putExtra("name", name);
         setResult(Activity.RESULT_OK, resultIntent);
         finish();
+    }
+
+    public void addMC (View view) {
+        startActivityForResult(new Intent(this, MCAnswer.class), 0);
+    }
+
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 0) {
+            if (resultCode == Activity.RESULT_OK) {
+                String name = data.getStringExtra("name");
+                String type = data.getStringExtra("type");
+                //viewsArray.add(new InputData(name, type));
+                adapter.notifyDataSetChanged();
+            }
+        }
     }
 }

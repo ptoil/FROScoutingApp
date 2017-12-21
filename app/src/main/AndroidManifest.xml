@@ -25,7 +25,8 @@
         <activity android:name=".SelectView" />
         <activity android:name=".Scouting" />
         <activity android:name=".CreateScoutingInput" />
-        <activity android:name=".Import"></activity>
+        <activity android:name=".Import" />
+        <activity android:name=".MCAnswer"></activity>
     </application>
 
 </manifest>

@@ -101,6 +101,6 @@ public class CreateScoutingInput extends AppCompatActivity {
             editor.putString(valueOf(i), json);
         }
         editor.apply();
-        Snackbar.make(findViewById(R.id.myCoordinatorLayout), "Layout Applied", Snackbar.LENGTH_SHORT).show();
+        Snackbar.make(findViewById(R.id.constraintLayout), "Layout Applied", Snackbar.LENGTH_SHORT).show();
     }
 }
