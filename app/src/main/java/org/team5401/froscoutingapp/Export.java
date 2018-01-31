@@ -9,7 +9,10 @@ import android.widget.EditText;
 
 import com.google.gson.Gson;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -62,9 +65,11 @@ public class Export extends AppCompatActivity {
         }
 
         String filepath = getExternalStorageDirectory() + folderName + "/";
-        String fileName = "Match-" + match + ";Robot-" + robot + ".txt";
+        //String fileName = "Match-" + match + ";Robot-" + robot + ".txt";
+        String fileName = "data.txt";
         File myFile = new File(filepath + fileName);
 
+        /*
         boolean fileAlreadyExists = true;
         int counter = 0;
         while (fileAlreadyExists) {
@@ -76,10 +81,17 @@ public class Export extends AppCompatActivity {
                 fileAlreadyExists = false;
             }
         }
-        System.out.println("created file named " + fileName);
+        */
+        System.out.println("writing to file named " + fileName);
         System.out.println("filepath: " + filepath);
 
-        FileWriter writer = new FileWriter(myFile);
+        //FileWriter writer = new FileWriter(myFile, true);
+        BufferedWriter writer = new BufferedWriter(new FileWriter(myFile, true));
+        BufferedReader reader = new BufferedReader(new FileReader(myFile));
+        if (reader.readLine() != null) {
+            writer.write(System.lineSeparator());
+            System.out.println("new line");
+        }
         writer.write((match + ", " + robot + ", "));
         for (Map.Entry<String, ?> entry : scoutingDataValues.entrySet()) {
             String data = entry.getValue().toString();
