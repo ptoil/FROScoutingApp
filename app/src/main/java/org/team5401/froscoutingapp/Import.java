@@ -39,8 +39,12 @@ public class Import extends AppCompatActivity {
 
         File dir = new File(getExternalStorageDirectory(), "/FROScoutingApp/InputLayouts");
         File[] files = dir.listFiles();
-        for (File file : files) {
-            layouts.add(file.getName());
+        if (files != null) {
+            for (File file : files) {
+                layouts.add(file.getName());
+            }
+        } else {
+            layouts.add("No layouts found.layout");
         }
         int i = 0;
         for (String name : layouts) {
